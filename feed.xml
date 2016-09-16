@@ -2,13 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">Simple ideas that matter</title>
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://hhtopcu.github.io/feed.xml" />
-<link rel="alternate" type="text/html" href="http://hhtopcu.github.io" />
-<updated>2016-09-16T00:48:02-07:00</updated>
-<id>http://hhtopcu.github.io/</id>
+<link rel="self" type="application/atom+xml" href="https://hhtopcu.github.io/feed.xml" />
+<link rel="alternate" type="text/html" href="https://hhtopcu.github.io" />
+<updated>2016-09-16T00:54:12-07:00</updated>
+<id>https://hhtopcu.github.io/</id>
 <author>
   <name>Hasan Huseyin Topcu</name>
-  <uri>http://hhtopcu.github.io/</uri>
+  <uri>https://hhtopcu.github.io/</uri>
   <email>hhtopcu@gmail.com</email>
 </author>
 
@@ -17,14 +17,14 @@
 
 <entry>
   <title type="html"><![CDATA[VIPER Architecture in iOS]]></title>
-  <link rel="alternate" type="text/html" href="http://hhtopcu.github.io/articles/viper-arcitecture-swift/" />
-  <id>http://hhtopcu.github.io/articles/viper-arcitecture-swift</id>
+  <link rel="alternate" type="text/html" href="https://hhtopcu.github.io/articles/viper-arcitecture-swift/" />
+  <id>https://hhtopcu.github.io/articles/viper-arcitecture-swift</id>
   <updated>2016-04-29T00:00:00-00:00</updated>
   <published>2016-09-14T00:00:00-07:00</published>
   
   <author>
     <name>Hasan Huseyin Topcu</name>
-    <uri>http://hhtopcu.github.io</uri>
+    <uri>https://hhtopcu.github.io</uri>
     <email>hhtopcu@gmail.com</email>
   </author>
   <content type="html">
@@ -69,7 +69,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://hhtopcu.github.io/articles/viper-arcitecture-swift/&quot;&gt;VIPER Architecture in iOS&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;http://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on September 14, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://hhtopcu.github.io/articles/viper-arcitecture-swift/&quot;&gt;VIPER Architecture in iOS&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;https://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on September 14, 2016.&lt;/p&gt;
   </content>
 </entry>
 
@@ -78,14 +78,14 @@
 
 <entry>
   <title type="html"><![CDATA[Consume RESTful APIs using Alamofire in iOS (UNDER CONSTRUCTION)]]></title>
-  <link rel="alternate" type="text/html" href="http://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/" />
-  <id>http://hhtopcu.github.io/articles/consume-restful-api-using-alamofire</id>
+  <link rel="alternate" type="text/html" href="https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/" />
+  <id>https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire</id>
   <updated>2016-04-29T00:00:00-00:00</updated>
   <published>2016-04-29T00:00:00-07:00</published>
   
   <author>
     <name>Hasan Huseyin Topcu</name>
-    <uri>http://hhtopcu.github.io</uri>
+    <uri>https://hhtopcu.github.io</uri>
     <email>hhtopcu@gmail.com</email>
   </author>
   <content type="html">
@@ -254,7 +254,7 @@
 &lt;/ul&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;http://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/&quot;&gt;Consume RESTful APIs using Alamofire in iOS (UNDER CONSTRUCTION)&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;http://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on April 29, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/&quot;&gt;Consume RESTful APIs using Alamofire in iOS (UNDER CONSTRUCTION)&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;https://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on April 29, 2016.&lt;/p&gt;
   </content>
 </entry>
 
@@ -263,14 +263,14 @@
 
 <entry>
   <title type="html"><![CDATA[How to design RESTful APIs]]></title>
-  <link rel="alternate" type="text/html" href="http://hhtopcu.github.io/articles/how-to-design-restful-api/" />
-  <id>http://hhtopcu.github.io/articles/how-to-design-restful-api</id>
+  <link rel="alternate" type="text/html" href="https://hhtopcu.github.io/articles/how-to-design-restful-api/" />
+  <id>https://hhtopcu.github.io/articles/how-to-design-restful-api</id>
   <updated>2016-01-15T00:00:00-00:00</updated>
   <published>2016-01-05T00:00:00-08:00</published>
   
   <author>
     <name>Hasan Huseyin Topcu</name>
-    <uri>http://hhtopcu.github.io</uri>
+    <uri>https://hhtopcu.github.io</uri>
     <email>hhtopcu@gmail.com</email>
   </author>
   <content type="html">
@@ -366,7 +366,7 @@
 &lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/hdSrT4yjS1g&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;http://hhtopcu.github.io/articles/how-to-design-restful-api/&quot;&gt;How to design RESTful APIs&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;http://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on January 05, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://hhtopcu.github.io/articles/how-to-design-restful-api/&quot;&gt;How to design RESTful APIs&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;https://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on January 05, 2016.&lt;/p&gt;
   </content>
 </entry>
 
@@ -375,14 +375,14 @@
 
 <entry>
   <title type="html"><![CDATA[Multiple Storyboards]]></title>
-  <link rel="alternate" type="text/html" href="http://hhtopcu.github.io/articles/multiple-storyboards/" />
-  <id>http://hhtopcu.github.io/articles/multiple-storyboards</id>
+  <link rel="alternate" type="text/html" href="https://hhtopcu.github.io/articles/multiple-storyboards/" />
+  <id>https://hhtopcu.github.io/articles/multiple-storyboards</id>
   <updated>2015-11-28T00:00:00-00:00</updated>
   <published>2015-11-28T00:00:00-08:00</published>
   
   <author>
     <name>Hasan Huseyin Topcu</name>
-    <uri>http://hhtopcu.github.io</uri>
+    <uri>https://hhtopcu.github.io</uri>
     <email>hhtopcu@gmail.com</email>
   </author>
   <content type="html">
@@ -392,7 +392,7 @@
 
 &lt;p&gt;Assume our app may have features such as &lt;strong&gt;Business Info&lt;/strong&gt;, &lt;strong&gt;Request Driver&lt;/strong&gt;, &lt;strong&gt;Bookings&lt;/strong&gt;, &lt;strong&gt;History&lt;/strong&gt; and etc. Each feature(or module) has its own dedicated set of screens. Using multiple storyboard approach, we will simply accumulate all screens, dedicated to a single feature, to a single storyboard.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://hhtopcu.github.io/images/article/multiple-storyboards/multi_storyboards.png&quot; alt=&quot;Multiple Storyboards&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hhtopcu.github.io/images/article/multiple-storyboards/multi_storyboards.png&quot; alt=&quot;Multiple Storyboards&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;When you create an Xcode project, you come up with a single storyboard named &lt;em&gt;Main.storyboard&lt;/em&gt;. You can add a storyboard design from&lt;/p&gt;
 
@@ -417,7 +417,7 @@
 
 &lt;p&gt;However, beginning with the iOS-9, &lt;strong&gt;Storyboard Reference&lt;/strong&gt; is introduced which provides linking mechanism at the design stage. This new feature converts your single, fat and complex storyboard into modular and high-level storyboard easing your management.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://hhtopcu.github.io/images/article/multiple-storyboards/storyboard_reference.png&quot; alt=&quot;Multiple Storyboards&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hhtopcu.github.io/images/article/multiple-storyboards/storyboard_reference.png&quot; alt=&quot;Multiple Storyboards&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;To sum up, I strongly recommend you to organize your projects &lt;strong&gt;one storyboard for one feature approach&lt;/strong&gt; because of the following reasons: easy management of feature designs and increase your team productivity by reducing conflicts&lt;/p&gt;
 
@@ -432,7 +432,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://hhtopcu.github.io/articles/multiple-storyboards/&quot;&gt;Multiple Storyboards&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;http://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on November 28, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://hhtopcu.github.io/articles/multiple-storyboards/&quot;&gt;Multiple Storyboards&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;https://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on November 28, 2015.&lt;/p&gt;
   </content>
 </entry>
 
