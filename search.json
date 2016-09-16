@@ -1,0 +1,69 @@
+[
+
+  
+    {
+      "title"			: "VIPER Architecture in iOS",
+      "link"			: "http://hhtopcu.github.io/articles/viper-arcitecture-swift/",
+      "excerpt"		: "The easiest way of consuming API using Swift"
+    }
+  
+
+  
+    ,{
+      "title"			: "Consume RESTful APIs using Alamofire in iOS (UNDER CONSTRUCTION)",
+      "link"			: "http://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/",
+      "excerpt"		: "The easiest way of consuming API using Swift"
+    }
+  
+
+  
+    ,{
+      "title"			: "How to design RESTful APIs",
+      "link"			: "http://hhtopcu.github.io/articles/how-to-design-restful-api/",
+      "excerpt"		: "Design RESTful APIs in a correct way"
+    }
+  
+
+  
+    ,{
+      "title"			: "Multiple Storyboards",
+      "link"			: "http://hhtopcu.github.io/articles/multiple-storyboards/",
+      "excerpt"		: "Organize your Xcode project with multiple storyboards to manage easily"
+    }
+  
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    ,{
+      "title"			: "About me",
+      "link"			: "http://hhtopcu.github.io/about/",
+      "excerpt"		: "We can change the world as developers"
+    }
+  
+
+  
+    ,{
+      "title"			: "Theme Setup",
+      "link"			: "http://hhtopcu.github.io/theme-setup/",
+      "excerpt"		: "Instructions on how to install and customize the Jekyll theme So Simple."
+    }
+  
+
+  
+
+  
+
+  
+
+  
+
+]

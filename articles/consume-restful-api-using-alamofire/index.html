@@ -1,0 +1,404 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Consume RESTful APIs using Alamofire in iOS (UNDER CONSTRUCTION) &#8211; Simple ideas that matter</title>
+<meta name="description" content="The easiest way of consuming API using Swift">
+<meta name="keywords" content="RESTful, API, iOS, Alamofire">
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Consume RESTful APIs using Alamofire in iOS (UNDER CONSTRUCTION)">
+<meta name="twitter:description" content="The easiest way of consuming API using Swift">
+<meta name="twitter:site" content="@hhtopcu">
+<meta name="twitter:creator" content="@hhtopcu">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hhtopcu.github.io/images/site-logo.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Consume RESTful APIs using Alamofire in iOS (UNDER CONSTRUCTION)">
+<meta property="og:description" content="The easiest way of consuming API using Swift">
+<meta property="og:url" content="http://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/">
+<meta property="og:site_name" content="Simple ideas that matter">
+
+
+
+
+
+<link rel="canonical" href="http://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/">
+<link href="http://hhtopcu.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Simple ideas that matter Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://hhtopcu.github.io/assets/css/main.css">
+<!-- Webfonts -->
+<script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="http://hhtopcu.github.io/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="http://hhtopcu.github.io/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="http://hhtopcu.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+<!-- MathJax -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://hhtopcu.github.io/favicon.png">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://hhtopcu.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://hhtopcu.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://hhtopcu.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://hhtopcu.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://hhtopcu.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      
+		    
+		        
+		    
+		    <li><a href="http://hhtopcu.github.io/" >Home</a></li>
+		  
+		    
+		        
+		    
+		    <li><a href="http://hhtopcu.github.io/articles/" >Articles</a></li>
+		  
+		    
+		        
+		    
+		    <li><a href="http://hhtopcu.github.io/about/" >About me</a></li>
+		  
+		    
+		        
+		    
+		    <li><a href="http://hhtopcu.github.io/tags/" >Tags</a></li>
+		  
+		    
+		        
+		    
+		    <li><a href="http://hhtopcu.github.io/search/" >Search</a></li>
+		  
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<header class="masthead">
+	<div class="wrap">
+      
+  		<a href="http://hhtopcu.github.io/" class="site-logo" rel="home" title="Simple ideas that matter"><img src="http://hhtopcu.github.io/images/site-logo.png" width="200" height="200" alt="Simple ideas that matter logo" class="animated fadeInDown"></a>
+      
+      <h1 class="site-title animated fadeIn"><a href="http://hhtopcu.github.io/">Simple ideas that matter</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">Random stuffs for developers</h2>
+	</div>
+</header><!-- /.masthead -->
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <ul class="entry-tags">
+          <li><a href="http://hhtopcu.github.io/tags/#RESTful" title="Pages tagged RESTful">RESTful</a></li><li><a href="http://hhtopcu.github.io/tags/#API" title="Pages tagged API">API</a></li><li><a href="http://hhtopcu.github.io/tags/#iOS" title="Pages tagged iOS">iOS</a></li><li><a href="http://hhtopcu.github.io/tags/#Alamofire" title="Pages tagged Alamofire">Alamofire</a></li>
+        </ul>
+        
+          <h1 class="entry-title">Consume RESTful APIs using Alamofire in iOS (UNDER CONSTRUCTION)</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        
+        
+        
+          <img src="http://hhtopcu.github.io/images/bio-photo.jpg" class="bio-photo" alt="Hasan Huseyin Topcu bio photo"></a>
+        
+        <span class="author vcard">By <span class="fn">Hasan Huseyin Topcu</span></span>
+        <span class="entry-date date published"><time datetime="2016-04-29T00:00:00-07:00"><i class="fa fa-calendar-o"></i> April 29, 2016</time></span>
+        <span class="entry-date date modified"><time datetime="2016-04-29"><i class="fa fa-pencil"></i> April 29, 2016</time></span>
+        <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
+        <span class="social-share-twitter">
+  <a href="https://twitter.com/intent/tweet?hashtags=RESTful,API,iOS,Alamofire&amp;text=Consume%20RESTful%20APIs%20using%20Alamofire%20in%20iOS%20(UNDER%20CONSTRUCTION)&amp;url=http://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/&amp;via=hhtopcu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+</span>
+<span class="social-share-facebook">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
+</span>
+<span class="social-share-googleplus">
+  <a href="https://plus.google.com/share?url=http://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
+</span>
+<!-- /.social-share -->
+        
+      </footer>
+      <div class="entry-content">
+        <p>In my previous post, I wrote about how to design a RESTful API in a correct way under the lightning of best practices. In this post, I will show you how to consume a RESTful API using a famous networking libray <a href="https://github.com/Alamofire/Alamofire">Alamofire</a> using Swift language.</p>
+
+<p>The most important elements for the RESTful APIs are the consepts of a <strong>Resource</strong> and the <strong>Actions</strong> on them. The actions for a RESTful API is the CRUD operations on any resource (For Why does not an action named makePaymentIf go with a REST, please see my previous post :)). So in this tutorial, I will cover get (GET), create (POST), update (PUT) and delete (DELETE) operations on a resource serving from a designated API endpoints.</p>
+
+<p>Let’s say we have API endpoints for patient resource that for a hospital API.</p>
+
+<ul>
+  <li>api.resthospital.com/api/patients <strong>(GET)</strong></li>
+  <li>api.resthospital.com/api/patient <strong>(POST)</strong></li>
+  <li>api.resthospital.com/api/patients/{id} <strong>(PUT)</strong></li>
+  <li>api.resthospital.com/api/patients/{id} <strong>(DELETE)</strong></li>
+</ul>
+
+<p>Since RESTful architecture is based on HTTP request we should leverage the HTTP status codes. The following piece of code enumurates some known status codes:</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="n">public</span> <span class="k">enum</span> <span class="nl">EHttpStatusCode</span> <span class="p">:</span> <span class="n">Int</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">OK</span> <span class="o">=</span> <span class="mi">200</span>                       <span class="c1">// /GET result is successful</span>
+    <span class="k">case</span> <span class="n">CREATED</span> <span class="o">=</span> <span class="mi">201</span>                  <span class="c1">// /POST or /PUT is successful</span>
+    <span class="k">case</span> <span class="n">NOT_MODIFIED</span> <span class="o">=</span> <span class="mi">304</span>             <span class="c1">// If caching is enabled and etag matches with the server</span>
+    <span class="k">case</span> <span class="n">BAD_REQUEST</span> <span class="o">=</span> <span class="mi">400</span>              <span class="c1">// Possibly the parameters are invalid</span>
+    <span class="k">case</span> <span class="n">INVALID_CREDENTIAL</span> <span class="o">=</span> <span class="mi">401</span>       <span class="c1">// INVALID CREDENTIAL, possible invalid token</span>
+    <span class="k">case</span> <span class="n">NOT_FOUND</span> <span class="o">=</span> <span class="mi">404</span>                <span class="c1">// The item you looked for is not found</span>
+    <span class="k">case</span> <span class="n">CONFLICT</span> <span class="o">=</span> <span class="mi">409</span>                 <span class="c1">// Conflict - means already exist</span>
+    <span class="k">case</span> <span class="n">AUTHENTICATION_EXPIRED</span> <span class="o">=</span> <span class="mi">419</span>   <span class="c1">// Expired</span>
+<span class="p">}</span></code></pre></div>
+
+<h1 id="fetching-data-get-request">1. Fetching data (GET request)</h1>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="n">private</span> <span class="k">func</span> <span class="nf">get</span><span class="p">(</span><span class="nl">url</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">String</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">converter</span><span class="p">:</span> <span class="n">JSON</span> <span class="o">-&gt;</span> <span class="n">AnyObject</span><span class="p">,</span> <span class="nl">callback</span><span class="p">:</span> <span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Void</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Send the GET request</span>
+        <span class="n">Alamofire</span><span class="p">.</span><span class="n">request</span><span class="p">(.</span><span class="n">GET</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="n">headers</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">responseJSON</span> <span class="p">{</span> <span class="n">response</span> <span class="k">in</span>
+                
+                <span class="c1">// Get the status code of response</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">response</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">let</span> <span class="n">status</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">response</span><span class="o">!</span><span class="p">.</span><span class="n">statusCode</span><span class="p">;</span>
+                    
+                    <span class="k">switch</span> <span class="n">status</span> <span class="p">{</span>
+                        
+                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">OK</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                        
+                        <span class="c1">// Get the response body</span>
+                        <span class="k">if</span> <span class="k">let</span> <span class="nl">value</span><span class="p">:</span> <span class="n">AnyObject</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">value</span> <span class="p">{</span>
+                            
+                            <span class="c1">// Convert the body to JSON</span>
+                            <span class="k">let</span> <span class="n">json</span> <span class="o">=</span> <span class="n">JSON</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                            <span class="k">let</span> <span class="n">model</span> <span class="o">=</span> <span class="n">converter</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>
+                            
+                            <span class="c1">// call callback with no error</span>
+                            <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
+                        <span class="p">}</span>
+                        
+                    <span class="k">default</span><span class="o">:</span>
+                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">UnknownError</span><span class="p">))</span>
+                    <span class="p">}</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">APIEndpointNotAvailable</span><span class="p">))</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span></code></pre></div>
+
+<h1 id="updating-data-put-request">2. Updating data (PUT request)</h1>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="n">private</span> <span class="k">func</span> <span class="nf">update</span><span class="p">(</span><span class="nl">url</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">parameters</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">AnyObject</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">String</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">callback</span><span class="p">:</span> <span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Void</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Send the POST request</span>
+        <span class="n">Alamofire</span><span class="p">.</span><span class="n">request</span><span class="p">(.</span><span class="n">PUT</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="nl">parameters</span><span class="p">:</span> <span class="n">parameters</span><span class="p">,</span> <span class="nl">encoding</span><span class="p">:</span> <span class="p">.</span><span class="n">JSON</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="n">headers</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">responseJSON</span> <span class="p">{</span> <span class="n">response</span> <span class="k">in</span>
+                
+                <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">response</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="c1">// Get the status code of response</span>
+                    <span class="k">let</span> <span class="n">status</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">response</span><span class="o">!</span><span class="p">.</span><span class="n">statusCode</span><span class="p">;</span>
+                    
+                    <span class="k">switch</span> <span class="n">status</span> <span class="p">{</span>
+                        
+                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">CREATED</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                        <span class="c1">// Successful - No error</span>
+                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="nb">nil</span><span class="p">))</span>
+                        
+                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">INVALID_CREDENTIAL</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                        <span class="c1">// User already exist</span>
+                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">InvalidCredentials</span><span class="p">))</span>
+                        
+                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">CONFLICT</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                        <span class="c1">// User already exist</span>
+                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">AlreadyExist</span><span class="p">))</span>
+                        
+                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">NOT_FOUND</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                        <span class="c1">// The email does not exist</span>
+                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">NotExist</span><span class="p">))</span>
+                        
+                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">BAD_REQUEST</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                        <span class="c1">// Invalid parameters</span>
+                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">InvalidParameters</span><span class="p">))</span>
+                        
+                    <span class="k">default</span><span class="o">:</span>
+                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">UnknownError</span><span class="p">))</span>
+                    <span class="p">}</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">APIEndpointNotAvailable</span><span class="p">))</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span></code></pre></div>
+
+<h1 id="creating-data-post-request">3. Creating data (POST request)</h1>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="n">private</span> <span class="k">func</span> <span class="nf">create</span><span class="p">(</span><span class="nl">url</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">parameters</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">AnyObject</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">String</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">converter</span><span class="p">:</span> <span class="p">(</span><span class="n">JSON</span> <span class="o">-&gt;</span> <span class="n">AnyObject</span><span class="p">)</span><span class="o">?</span><span class="p">,</span> <span class="nl">callback</span><span class="p">:</span> <span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Void</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Send the POST request</span>
+        <span class="n">Alamofire</span><span class="p">.</span><span class="n">request</span><span class="p">(.</span><span class="n">POST</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="nl">parameters</span><span class="p">:</span> <span class="n">parameters</span><span class="p">,</span> <span class="nl">encoding</span><span class="p">:</span> <span class="p">.</span><span class="n">JSON</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="n">headers</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">responseJSON</span> <span class="p">{</span> <span class="n">response</span> <span class="k">in</span>
+                
+                <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">response</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="c1">// Get the status code of response</span>
+                    <span class="k">let</span> <span class="n">status</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">response</span><span class="o">!</span><span class="p">.</span><span class="n">statusCode</span><span class="p">;</span>
+                    
+                    <span class="k">switch</span> <span class="n">status</span> <span class="p">{</span>
+                        
+                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">OK</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                        <span class="c1">// Get the response body</span>
+                        <span class="k">if</span> <span class="k">let</span> <span class="nl">value</span><span class="p">:</span> <span class="n">AnyObject</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">value</span> <span class="p">{</span>
+                            <span class="k">let</span> <span class="n">json</span> <span class="o">=</span> <span class="n">JSON</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                            <span class="k">let</span> <span class="n">model</span> <span class="o">=</span> <span class="n">converter</span><span class="o">!</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>
+                            
+                            <span class="c1">// call callback with no error</span>
+                            <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
+                        <span class="p">}</span>
+                        
+                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">CREATED</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                        <span class="c1">// Successful - No error</span>
+                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="nb">nil</span><span class="p">))</span>
+                        
+                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">INVALID_CREDENTIAL</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                        <span class="c1">// User already exist</span>
+                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">InvalidCredentials</span><span class="p">))</span>
+                        
+                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">CONFLICT</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                        <span class="c1">// User already exist</span>
+                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">AlreadyExist</span><span class="p">))</span>
+                        
+                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">NOT_FOUND</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                        <span class="c1">// The email does not exist</span>
+                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">NotExist</span><span class="p">))</span>
+                        
+                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">BAD_REQUEST</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                        <span class="c1">// Invalid parameters</span>
+                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">InvalidParameters</span><span class="p">))</span>
+                        
+                    <span class="k">default</span><span class="o">:</span>
+                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">UnknownError</span><span class="p">))</span>
+                    <span class="p">}</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">APIEndpointNotAvailable</span><span class="p">))</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span></code></pre></div>
+
+<h1 id="deleting-data">4. Deleting data</h1>
+<p>It is your homework :)</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="https://github.com/Alamofire/Alamofire">Alamofire</a></li>
+</ul>
+
+
+        
+          <div id="disqus_thread"></div><!-- /#disqus_thread -->
+          
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hhtopcu'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://hhtopcu.github.io/articles/how-to-design-restful-api/" class="btn" title="How to design RESTful APIs">Previous</a>
+      
+      
+        <a href="http://hhtopcu.github.io/articles/viper-arcitecture-swift/" class="btn" title="VIPER Architecture in iOS">Next</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    
+
+<span>&copy; 2016 Hasan Huseyin Topcu</span>
+<div class="social-icons">
+	<a href="https://twitter.com/hhtopcu" title="Hasan Huseyin Topcu on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+	
+	
+	<a href="https://linkedin.com/in/hhtopcu" title="Hasan Huseyin Topcu on LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+	
+	
+	
+	<a href="https://github.com/hhtopcu" title="Hasan Huseyin Topcu on Github" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+	
+  
+	
+  <a href="http://hhtopcu.github.io/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'http://hhtopcu.github.io';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://hhtopcu.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://hhtopcu.github.io/assets/js/scripts.min.js"></script>
+
+
+
+
+</body>
+</html>

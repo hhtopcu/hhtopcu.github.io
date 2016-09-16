@@ -1,0 +1,278 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>VIPER Architecture in iOS &#8211; Simple ideas that matter</title>
+<meta name="description" content="The easiest way of consuming API using Swift">
+<meta name="keywords" content="VIPER, iOS, MVC">
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="VIPER Architecture in iOS">
+<meta name="twitter:description" content="The easiest way of consuming API using Swift">
+<meta name="twitter:site" content="@hhtopcu">
+<meta name="twitter:creator" content="@hhtopcu">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hhtopcu.github.io/images/site-logo.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VIPER Architecture in iOS">
+<meta property="og:description" content="The easiest way of consuming API using Swift">
+<meta property="og:url" content="http://hhtopcu.github.io/articles/viper-arcitecture-swift/">
+<meta property="og:site_name" content="Simple ideas that matter">
+
+
+
+
+
+<link rel="canonical" href="http://hhtopcu.github.io/articles/viper-arcitecture-swift/">
+<link href="http://hhtopcu.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Simple ideas that matter Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://hhtopcu.github.io/assets/css/main.css">
+<!-- Webfonts -->
+<script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="http://hhtopcu.github.io/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="http://hhtopcu.github.io/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="http://hhtopcu.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+<!-- MathJax -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://hhtopcu.github.io/favicon.png">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://hhtopcu.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://hhtopcu.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://hhtopcu.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://hhtopcu.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://hhtopcu.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      
+		    
+		        
+		    
+		    <li><a href="http://hhtopcu.github.io/" >Home</a></li>
+		  
+		    
+		        
+		    
+		    <li><a href="http://hhtopcu.github.io/articles/" >Articles</a></li>
+		  
+		    
+		        
+		    
+		    <li><a href="http://hhtopcu.github.io/about/" >About me</a></li>
+		  
+		    
+		        
+		    
+		    <li><a href="http://hhtopcu.github.io/tags/" >Tags</a></li>
+		  
+		    
+		        
+		    
+		    <li><a href="http://hhtopcu.github.io/search/" >Search</a></li>
+		  
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<header class="masthead">
+	<div class="wrap">
+      
+  		<a href="http://hhtopcu.github.io/" class="site-logo" rel="home" title="Simple ideas that matter"><img src="http://hhtopcu.github.io/images/site-logo.png" width="200" height="200" alt="Simple ideas that matter logo" class="animated fadeInDown"></a>
+      
+      <h1 class="site-title animated fadeIn"><a href="http://hhtopcu.github.io/">Simple ideas that matter</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">Random stuffs for developers</h2>
+	</div>
+</header><!-- /.masthead -->
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <ul class="entry-tags">
+          <li><a href="http://hhtopcu.github.io/tags/#VIPER" title="Pages tagged VIPER">VIPER</a></li><li><a href="http://hhtopcu.github.io/tags/#iOS" title="Pages tagged iOS">iOS</a></li><li><a href="http://hhtopcu.github.io/tags/#MVC" title="Pages tagged MVC">MVC</a></li>
+        </ul>
+        
+          <h1 class="entry-title">VIPER Architecture in iOS</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        
+        
+        
+          <img src="http://hhtopcu.github.io/images/bio-photo.jpg" class="bio-photo" alt="Hasan Huseyin Topcu bio photo"></a>
+        
+        <span class="author vcard">By <span class="fn">Hasan Huseyin Topcu</span></span>
+        <span class="entry-date date published"><time datetime="2016-09-14T00:00:00-07:00"><i class="fa fa-calendar-o"></i> September 14, 2016</time></span>
+        <span class="entry-date date modified"><time datetime="2016-04-29"><i class="fa fa-pencil"></i> April 29, 2016</time></span>
+        <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
+        <span class="social-share-twitter">
+  <a href="https://twitter.com/intent/tweet?hashtags=VIPER,iOS,MVC&amp;text=VIPER%20Architecture%20in%20iOS&amp;url=http://hhtopcu.github.io/articles/viper-arcitecture-swift/&amp;via=hhtopcu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+</span>
+<span class="social-share-facebook">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://hhtopcu.github.io/articles/viper-arcitecture-swift/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
+</span>
+<span class="social-share-googleplus">
+  <a href="https://plus.google.com/share?url=http://hhtopcu.github.io/articles/viper-arcitecture-swift/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
+</span>
+<!-- /.social-share -->
+        
+      </footer>
+      <div class="entry-content">
+        <p>Software architecture is the process of defining a structured solution that meets all of the technical and operational requirements. In mobile literature, you heavily heard MVC from Apple’s and Google’s official documentations. If you are a beginner, the way how they structured an mobile software is good, however, if you are a part of big project (which can be discussed what is big?), MVC limits you and enables the violation of important principles like SRP which directly affects the testability of the software. So we really need better architectures.</p>
+
+<p>MVP, MVVM and VIPER are one of these better architectures for big projects. I will not go into detail what they are and when to use them, you can read the articles in the references. In this post, I will mention VIPER in a practical manner</p>
+
+<p>I pushed a gem that you can easily generate a VIPER architecture for your module with vipergen-xctestable</p>
+
+<blockquote>
+  <p>sudo gem install vipergen-xctestable</p>
+</blockquote>
+
+<p>and next</p>
+
+<blockquote>
+  <p>vipergen generate Auth –path=. –language=swift –author=’hhtopcu’ –template=xctestable –swift-module MyViper</p>
+</blockquote>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">// Some code</span></code></pre></div>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>
+    <p><a href="http://mutualmobile.github.io/blog/2013/12/04/viper-introduction/">Introduction to VIPER</a></p>
+  </li>
+  <li>
+    <p><a href="https://medium.com/brigade-engineering/brigades-experience-using-an-mvc-alternative-36ef1601a41f#.z3qdnldih">Brigade’s Experience Using an MVC Alternative</a></p>
+  </li>
+  <li>
+    <p><a href="https://swifting.io/blog/2016/03/07/8-viper-to-be-or-not-to-be/">#8 VIPER to be or not to be?</a></p>
+  </li>
+  <li>
+    <p><a href="http://iosunittesting.com/tdd-with-viper/?utm_source=swifting.io&amp;utm_medium=web&amp;utm_campaign=blog%20post">First Observations on TDD with VIPER</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.objc.io/issues/13-architecture/viper/">Architecting iOS Apps with VIPER</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.mttnow.com/blog/architecting-mobile-apps-with-bviper-modules">ARCHITECTING MOBILE APPS WITH (B)VIPER MODULES</a></p>
+  </li>
+</ul>
+
+        
+          <div id="disqus_thread"></div><!-- /#disqus_thread -->
+          
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hhtopcu'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/" class="btn" title="Consume RESTful APIs using Alamofire in iOS (UNDER CONSTRUCTION)">Previous</a>
+      
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    
+
+<span>&copy; 2016 Hasan Huseyin Topcu</span>
+<div class="social-icons">
+	<a href="https://twitter.com/hhtopcu" title="Hasan Huseyin Topcu on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+	
+	
+	<a href="https://linkedin.com/in/hhtopcu" title="Hasan Huseyin Topcu on LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+	
+	
+	
+	<a href="https://github.com/hhtopcu" title="Hasan Huseyin Topcu on Github" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+	
+  
+	
+  <a href="http://hhtopcu.github.io/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'http://hhtopcu.github.io';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://hhtopcu.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://hhtopcu.github.io/assets/js/scripts.min.js"></script>
+
+
+
+
+</body>
+</html>
