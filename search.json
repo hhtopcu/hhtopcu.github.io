@@ -10,9 +10,9 @@
 
   
     ,{
-      "title"			: "Consume RESTful APIs using Alamofire in iOS (UNDER CONSTRUCTION)",
+      "title"			: "Consume RESTful APIs using Alamofire with Swift 3",
       "link"			: "https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/",
-      "excerpt"		: "The easiest way of consuming API using Swift"
+      "excerpt"		: "The easiest way of consuming API using Swift 3"
     }
   
 

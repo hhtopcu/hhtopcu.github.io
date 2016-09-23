@@ -5,15 +5,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Consume RESTful APIs using Alamofire in iOS (UNDER CONSTRUCTION) &#8211; Simple ideas that matter</title>
-<meta name="description" content="The easiest way of consuming API using Swift">
+<title>Consume RESTful APIs using Alamofire with Swift 3 &#8211; Simple ideas that matter</title>
+<meta name="description" content="The easiest way of consuming API using Swift 3">
 <meta name="keywords" content="RESTful, API, iOS, Alamofire">
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Consume RESTful APIs using Alamofire in iOS (UNDER CONSTRUCTION)">
-<meta name="twitter:description" content="The easiest way of consuming API using Swift">
+<meta name="twitter:title" content="Consume RESTful APIs using Alamofire with Swift 3">
+<meta name="twitter:description" content="The easiest way of consuming API using Swift 3">
 <meta name="twitter:site" content="@hhtopcu">
 <meta name="twitter:creator" content="@hhtopcu">
 
@@ -23,8 +23,8 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Consume RESTful APIs using Alamofire in iOS (UNDER CONSTRUCTION)">
-<meta property="og:description" content="The easiest way of consuming API using Swift">
+<meta property="og:title" content="Consume RESTful APIs using Alamofire with Swift 3">
+<meta property="og:description" content="The easiest way of consuming API using Swift 3">
 <meta property="og:url" content="https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/">
 <meta property="og:site_name" content="Simple ideas that matter">
 
@@ -136,7 +136,7 @@
           <li><a href="https://hhtopcu.github.io/tags/#RESTful" title="Pages tagged RESTful">RESTful</a></li><li><a href="https://hhtopcu.github.io/tags/#API" title="Pages tagged API">API</a></li><li><a href="https://hhtopcu.github.io/tags/#iOS" title="Pages tagged iOS">iOS</a></li><li><a href="https://hhtopcu.github.io/tags/#Alamofire" title="Pages tagged Alamofire">Alamofire</a></li>
         </ul>
         
-          <h1 class="entry-title">Consume RESTful APIs using Alamofire in iOS (UNDER CONSTRUCTION)</h1>
+          <h1 class="entry-title">Consume RESTful APIs using Alamofire with Swift 3</h1>
         
       </header>
       <footer class="entry-meta">
@@ -150,7 +150,7 @@
         <span class="entry-date date modified"><time datetime="2016-04-29"><i class="fa fa-pencil"></i> April 29, 2016</time></span>
         <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
         <span class="social-share-twitter">
-  <a href="https://twitter.com/intent/tweet?hashtags=RESTful,API,iOS,Alamofire&amp;text=Consume%20RESTful%20APIs%20using%20Alamofire%20in%20iOS%20(UNDER%20CONSTRUCTION)&amp;url=https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/&amp;via=hhtopcu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+  <a href="https://twitter.com/intent/tweet?hashtags=RESTful,API,iOS,Alamofire&amp;text=Consume%20RESTful%20APIs%20using%20Alamofire%20with%20Swift%203&amp;url=https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/&amp;via=hhtopcu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
 </span>
 <span class="social-share-facebook">
   <a href="https://www.facebook.com/sharer/sharer.php?u=https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
@@ -164,9 +164,9 @@
       <div class="entry-content">
         <p>In my previous post, I wrote about how to design a RESTful API in a correct way under the lightning of best practices. In this post, I will show you how to consume a RESTful API using a famous networking libray <a href="https://github.com/Alamofire/Alamofire">Alamofire</a> using Swift language.</p>
 
-<p>The most important elements for the RESTful APIs are the consepts of a <strong>Resource</strong> and the <strong>Actions</strong> on them. The actions for a RESTful API is the CRUD operations on any resource (For Why does not an action named makePaymentIf go with a REST, please see my previous post :)). So in this tutorial, I will cover get (GET), create (POST), update (PUT) and delete (DELETE) operations on a resource serving from a designated API endpoints.</p>
+<p>The most important elements for the RESTful APIs are the consepts of a <strong>Resource</strong> and the <strong>Actions</strong> on them. The actions for a RESTful API is the CRUD operations on any resource. So in this tutorial, I will cover get (GET), create (POST), update (PUT) and delete (DELETE) operations on a resource serving from a designated API endpoints.</p>
 
-<p>Let’s say we have API endpoints for patient resource that for a hospital API.</p>
+<p>Let’s say we have API endpoints for a patient resource that for a hospital API.</p>
 
 <ul>
   <li>api.resthospital.com/api/patients <strong>(GET)</strong></li>
@@ -178,7 +178,7 @@
 <p>Since RESTful architecture is based on HTTP request we should leverage the HTTP status codes. The following piece of code enumurates some known status codes:</p>
 
 <div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="n">public</span> <span class="k">enum</span> <span class="nl">EHttpStatusCode</span> <span class="p">:</span> <span class="n">Int</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="n">OK</span> <span class="o">=</span> <span class="mi">200</span>                       <span class="c1">// /GET result is successful</span>
+    <span class="k">case</span> <span class="n">OK</span> <span class="o">=</span> <span class="mi">200</span>                       <span class="c1">// /GET, /DELETE result is successful</span>
     <span class="k">case</span> <span class="n">CREATED</span> <span class="o">=</span> <span class="mi">201</span>                  <span class="c1">// /POST or /PUT is successful</span>
     <span class="k">case</span> <span class="n">NOT_MODIFIED</span> <span class="o">=</span> <span class="mi">304</span>             <span class="c1">// If caching is enabled and etag matches with the server</span>
     <span class="k">case</span> <span class="n">BAD_REQUEST</span> <span class="o">=</span> <span class="mi">400</span>              <span class="c1">// Possibly the parameters are invalid</span>
@@ -188,136 +188,144 @@
     <span class="k">case</span> <span class="n">AUTHENTICATION_EXPIRED</span> <span class="o">=</span> <span class="mi">419</span>   <span class="c1">// Expired</span>
 <span class="p">}</span></code></pre></div>
 
+<p>RESTful API will provide us data with a format like Json (or Xml, …). Since we obtain data in one of these format, we should somehow convert the data into models (classes/structs defined to model the domain). We can write our model converters providing from/to json/xml converters or use beatiful open-source libraries. <a href="https://github.com/Hearst-DD/ObjectMapper">ObjectMapper</a> is one of those beautiful libraries with a clear usage. Here, i used <a href="https://github.com/tristanhimmelman/AlamofireObjectMapper">AlamofireObjectMapper</a> which is an Alamofire extension which converts JSON response data into swift objects using ObjectMapper.</p>
+
+<p>For instance, we can model a patient like below (aware the Mappable protocol)</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">import</span> <span class="n">Foundation</span>
+<span class="k">import</span> <span class="n">ObjectMapper</span>
+
+<span class="k">class</span> <span class="nl">Country</span><span class="p">:</span> <span class="n">Mappable</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="kt">id</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+    <span class="k">var</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+    <span class="k">var</span> <span class="n">age</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+
+    <span class="k">init</span><span class="p">(</span><span class="kt">id</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">age</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="kt">id</span> <span class="o">=</span> <span class="kt">id</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+    <span class="p">}</span>
+
+    <span class="n">required</span> <span class="k">init</span><span class="o">?</span><span class="p">(</span><span class="nl">map</span><span class="p">:</span> <span class="n">Map</span><span class="p">){</span>
+
+    <span class="p">}</span>
+
+    <span class="k">func</span> <span class="n">mapping</span><span class="p">(</span><span class="nl">map</span><span class="p">:</span> <span class="n">Map</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">id</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">&quot;id&quot;</span><span class="p">]</span>
+        <span class="n">name</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">]</span>
+        <span class="n">age</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">&quot;age&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Okay, we have the domain model, and thanks to <a href="https://github.com/Hearst-DD/ObjectMapper">ObjectMapper</a> library for the json conversions. Before creating our <strong>ApiService</strong> class, let’s create a protocol named <strong>ApiServiceProtocol</strong> to see the blueprints of our Api Service</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">protocol</span> <span class="n">ApiServiceProtocol</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="kr">get</span><span class="p">(</span><span class="nl">url</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">String</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">callback</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Void</span><span class="p">)</span>
+    <span class="k">func</span> <span class="n">update</span><span class="p">(</span><span class="nl">url</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">parameters</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">Any</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">String</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">callback</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Void</span><span class="p">)</span>
+    <span class="k">func</span> <span class="n">create</span><span class="p">(</span><span class="nl">url</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">parameters</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">Any</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">String</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">callback</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Void</span><span class="p">)</span>
+    <span class="k">func</span> <span class="n">delete</span><span class="p">(</span><span class="nl">url</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">parameters</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">Any</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">String</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">callback</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Void</span><span class="p">)</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Let’s create our ApiService class. Create a class named <strong>ApiService</strong> conforming to <strong>ApiServiceProtocol</strong> protocol. Do you see the <t:>? Yeah, In order to create a reusable api service with providing compatibility to all Mappable class we defined for our domain, I use Generics</t:></p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">class</span> <span class="n">ApiService</span><span class="o">&lt;</span><span class="nl">T</span><span class="p">:</span> <span class="n">BaseMappable</span><span class="o">&gt;:</span> <span class="n">ApiServiceProtocol</span> <span class="p">{</span>
+    <span class="c1">// Implement the protocol</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Let’s start to implement for fetching data from a restful api</p>
+
 <h1 id="fetching-data-get-request">1. Fetching data (GET request)</h1>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="n">private</span> <span class="k">func</span> <span class="nf">get</span><span class="p">(</span><span class="nl">url</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">String</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">converter</span><span class="p">:</span> <span class="n">JSON</span> <span class="o">-&gt;</span> <span class="n">AnyObject</span><span class="p">,</span> <span class="nl">callback</span><span class="p">:</span> <span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Void</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Send the GET request</span>
-        <span class="n">Alamofire</span><span class="p">.</span><span class="n">request</span><span class="p">(.</span><span class="n">GET</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="n">headers</span><span class="p">)</span>
-            <span class="p">.</span><span class="n">responseJSON</span> <span class="p">{</span> <span class="n">response</span> <span class="k">in</span>
-                
-                <span class="c1">// Get the status code of response</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">response</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="k">let</span> <span class="n">status</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">response</span><span class="o">!</span><span class="p">.</span><span class="n">statusCode</span><span class="p">;</span>
-                    
-                    <span class="k">switch</span> <span class="n">status</span> <span class="p">{</span>
-                        
-                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">OK</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
-                        
-                        <span class="c1">// Get the response body</span>
-                        <span class="k">if</span> <span class="k">let</span> <span class="nl">value</span><span class="p">:</span> <span class="n">AnyObject</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">value</span> <span class="p">{</span>
-                            
-                            <span class="c1">// Convert the body to JSON</span>
-                            <span class="k">let</span> <span class="n">json</span> <span class="o">=</span> <span class="n">JSON</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-                            <span class="k">let</span> <span class="n">model</span> <span class="o">=</span> <span class="n">converter</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>
-                            
-                            <span class="c1">// call callback with no error</span>
-                            <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
-                        <span class="p">}</span>
-                        
-                    <span class="k">default</span><span class="o">:</span>
-                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">UnknownError</span><span class="p">))</span>
-                    <span class="p">}</span>
-                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                    <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">APIEndpointNotAvailable</span><span class="p">))</span>
+<p>GET request is best fit for fetching data with its idempotent behaviour, no affect on status of the api.</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="cm">/**</span>
+<span class="cm">This method sends a GET request to given url in order to fetch data</span>
+<span class="cm">- parameters:</span>
+<span class="cm">    - url: API Endpoint</span>
+<span class="cm">    - headers: Required HTTP header</span>
+<span class="cm">    - callback: The callback handler to provide the result of the fetched data</span>
+<span class="cm">*/</span>
+<span class="k">func</span> <span class="nf">get</span><span class="p">(</span><span class="nl">url</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">String</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">callback</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Send the GET request</span>
+    <span class="n">Alamofire</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="nl">method</span><span class="p">:</span> <span class="p">.</span><span class="kr">get</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="n">headers</span><span class="p">).</span><span class="n">responseObject</span> <span class="p">{</span> <span class="p">(</span><span class="nl">response</span><span class="p">:</span> <span class="n">DataResponse</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Void</span> <span class="k">in</span>
+        <span class="c1">// Get the status code of response</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">response</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">let</span> <span class="n">status</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">response</span><span class="o">!</span><span class="p">.</span><span class="n">statusCode</span><span class="p">;</span>
+
+                <span class="k">switch</span> <span class="n">status</span> <span class="p">{</span>
+
+                <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">OK</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                <span class="c1">// Get the response body</span>
+                <span class="k">if</span> <span class="k">let</span> <span class="n">value</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">value</span> <span class="p">{</span>
+                <span class="c1">// call callback with no error</span>
+                <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">value</span> <span class="kt">as</span> <span class="n">T</span><span class="o">!</span><span class="p">))</span>
                 <span class="p">}</span>
+
+                <span class="k">default</span><span class="o">:</span>
+                <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">UnknownError</span><span class="p">))</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">APIEndpointNotAvailable</span><span class="p">))</span>
         <span class="p">}</span>
-    <span class="p">}</span></code></pre></div>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>The critical points here are using DataResponse<t> where [AlamofireObjectMapper](https://github.com/tristanhimmelman/AlamofireObjectMapper) provides the DataResponse and Generics provides ability to use this method with a model-independent way.</t></p>
 
 <h1 id="updating-data-put-request">2. Updating data (PUT request)</h1>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="n">private</span> <span class="k">func</span> <span class="nf">update</span><span class="p">(</span><span class="nl">url</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">parameters</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">AnyObject</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">String</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">callback</span><span class="p">:</span> <span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Void</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Send the POST request</span>
-        <span class="n">Alamofire</span><span class="p">.</span><span class="n">request</span><span class="p">(.</span><span class="n">PUT</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="nl">parameters</span><span class="p">:</span> <span class="n">parameters</span><span class="p">,</span> <span class="nl">encoding</span><span class="p">:</span> <span class="p">.</span><span class="n">JSON</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="n">headers</span><span class="p">)</span>
-            <span class="p">.</span><span class="n">responseJSON</span> <span class="p">{</span> <span class="n">response</span> <span class="k">in</span>
-                
-                <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">response</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="c1">// Get the status code of response</span>
-                    <span class="k">let</span> <span class="n">status</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">response</span><span class="o">!</span><span class="p">.</span><span class="n">statusCode</span><span class="p">;</span>
-                    
-                    <span class="k">switch</span> <span class="n">status</span> <span class="p">{</span>
-                        
-                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">CREATED</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
-                        <span class="c1">// Successful - No error</span>
-                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="nb">nil</span><span class="p">))</span>
-                        
-                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">INVALID_CREDENTIAL</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
-                        <span class="c1">// User already exist</span>
-                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">InvalidCredentials</span><span class="p">))</span>
-                        
-                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">CONFLICT</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
-                        <span class="c1">// User already exist</span>
-                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">AlreadyExist</span><span class="p">))</span>
-                        
-                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">NOT_FOUND</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
-                        <span class="c1">// The email does not exist</span>
-                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">NotExist</span><span class="p">))</span>
-                        
-                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">BAD_REQUEST</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
-                        <span class="c1">// Invalid parameters</span>
-                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">InvalidParameters</span><span class="p">))</span>
-                        
-                    <span class="k">default</span><span class="o">:</span>
-                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">UnknownError</span><span class="p">))</span>
-                    <span class="p">}</span>
-                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                    <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">APIEndpointNotAvailable</span><span class="p">))</span>
-                <span class="p">}</span>
+<p>This is the same with <strong>get</strong> function except http method: PUT</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="cm">/**</span>
+<span class="cm">This method sends a PUT request to given url in order to update data</span>
+<span class="cm">- parameters:</span>
+<span class="cm">    - url: API endpoint</span>
+<span class="cm">    - parameters: The data to be updated</span>
+<span class="cm">    - headers: Required HTTP header</span>
+<span class="cm">    - callback: The callback handler to provide the result of the update operation</span>
+<span class="cm">*/</span>
+<span class="k">func</span> <span class="nf">update</span><span class="p">(</span><span class="nl">url</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">parameters</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">Any</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">String</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">callback</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Send the POST request</span>
+    <span class="n">Alamofire</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="nl">method</span><span class="p">:</span> <span class="p">.</span><span class="n">put</span><span class="p">,</span> <span class="nl">parameters</span><span class="p">:</span> <span class="n">parameters</span><span class="p">,</span> <span class="nl">encoding</span><span class="p">:</span> <span class="n">JSONEncoding</span><span class="p">.</span><span class="k">default</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="n">headers</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">responseJSON</span> <span class="p">{</span> <span class="n">response</span> <span class="k">in</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">response</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Get the status code of response</span>
+            <span class="k">let</span> <span class="n">status</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">response</span><span class="o">!</span><span class="p">.</span><span class="n">statusCode</span><span class="p">;</span>
+
+            <span class="k">switch</span> <span class="n">status</span> <span class="p">{</span>
+
+                <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">OK</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                    <span class="c1">// Successful - No error</span>
+                    <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="nb">nil</span><span class="p">))</span>
+
+                <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">INVALID_CREDENTIAL</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                    <span class="c1">// invalid credentials</span>
+                    <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">InvalidCredentials</span><span class="p">))</span>
+
+                <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">CONFLICT</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                    <span class="c1">// Resource already exist</span>
+                    <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">AlreadyExist</span><span class="p">))</span>
+
+                <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">NOT_FOUND</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                    <span class="c1">// The resource does not exist</span>
+                    <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">NotExist</span><span class="p">))</span>
+
+                <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">BAD_REQUEST</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
+                    <span class="c1">// Invalid parameters</span>
+                    <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">InvalidParameters</span><span class="p">))</span>
+
+                <span class="k">default</span><span class="o">:</span>
+                    <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">UnknownError</span><span class="p">))</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">APIEndpointNotAvailable</span><span class="p">))</span>
         <span class="p">}</span>
-    <span class="p">}</span></code></pre></div>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
 
-<h1 id="creating-data-post-request">3. Creating data (POST request)</h1>
+<h1 id="creating-and-deleting-data">3/4. Creating and Deleting data</h1>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="n">private</span> <span class="k">func</span> <span class="nf">create</span><span class="p">(</span><span class="nl">url</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">parameters</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">AnyObject</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">String</span><span class="p">]</span><span class="o">?</span><span class="p">,</span> <span class="nl">converter</span><span class="p">:</span> <span class="p">(</span><span class="n">JSON</span> <span class="o">-&gt;</span> <span class="n">AnyObject</span><span class="p">)</span><span class="o">?</span><span class="p">,</span> <span class="nl">callback</span><span class="p">:</span> <span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Void</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Send the POST request</span>
-        <span class="n">Alamofire</span><span class="p">.</span><span class="n">request</span><span class="p">(.</span><span class="n">POST</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="nl">parameters</span><span class="p">:</span> <span class="n">parameters</span><span class="p">,</span> <span class="nl">encoding</span><span class="p">:</span> <span class="p">.</span><span class="n">JSON</span><span class="p">,</span> <span class="nl">headers</span><span class="p">:</span> <span class="n">headers</span><span class="p">)</span>
-            <span class="p">.</span><span class="n">responseJSON</span> <span class="p">{</span> <span class="n">response</span> <span class="k">in</span>
-                
-                <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">response</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="c1">// Get the status code of response</span>
-                    <span class="k">let</span> <span class="n">status</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">response</span><span class="o">!</span><span class="p">.</span><span class="n">statusCode</span><span class="p">;</span>
-                    
-                    <span class="k">switch</span> <span class="n">status</span> <span class="p">{</span>
-                        
-                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">OK</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
-                        <span class="c1">// Get the response body</span>
-                        <span class="k">if</span> <span class="k">let</span> <span class="nl">value</span><span class="p">:</span> <span class="n">AnyObject</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">value</span> <span class="p">{</span>
-                            <span class="k">let</span> <span class="n">json</span> <span class="o">=</span> <span class="n">JSON</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-                            <span class="k">let</span> <span class="n">model</span> <span class="o">=</span> <span class="n">converter</span><span class="o">!</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>
-                            
-                            <span class="c1">// call callback with no error</span>
-                            <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
-                        <span class="p">}</span>
-                        
-                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">CREATED</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
-                        <span class="c1">// Successful - No error</span>
-                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="nb">nil</span><span class="p">))</span>
-                        
-                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">INVALID_CREDENTIAL</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
-                        <span class="c1">// User already exist</span>
-                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">InvalidCredentials</span><span class="p">))</span>
-                        
-                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">CONFLICT</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
-                        <span class="c1">// User already exist</span>
-                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">AlreadyExist</span><span class="p">))</span>
-                        
-                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">NOT_FOUND</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
-                        <span class="c1">// The email does not exist</span>
-                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">NotExist</span><span class="p">))</span>
-                        
-                    <span class="k">case</span> <span class="n">EHttpStatusCode</span><span class="p">.</span><span class="n">BAD_REQUEST</span><span class="p">.</span><span class="nl">rawValue</span><span class="p">:</span>
-                        <span class="c1">// Invalid parameters</span>
-                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">InvalidParameters</span><span class="p">))</span>
-                        
-                    <span class="k">default</span><span class="o">:</span>
-                        <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">UnknownError</span><span class="p">))</span>
-                    <span class="p">}</span>
-                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                    <span class="n">callback</span><span class="p">(</span><span class="n">ECallbackResultType</span><span class="p">.</span><span class="n">Failure</span><span class="p">(</span><span class="n">ECallbackErrorType</span><span class="p">.</span><span class="n">APIEndpointNotAvailable</span><span class="p">))</span>
-                <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span></code></pre></div>
-
-<h1 id="deleting-data">4. Deleting data</h1>
 <p>It is your homework :)</p>
 
 <h2 id="references">References</h2>
