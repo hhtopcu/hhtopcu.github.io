@@ -5,15 +5,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>VIPER Architecture in iOS &#8211; Simple ideas that matter</title>
-<meta name="description" content="The easiest way of consuming API using Swift">
-<meta name="keywords" content="VIPER, iOS, MVC">
+<title>Node.js debugging using node-inspector &#8211; Simple ideas that matter</title>
+<meta name="description" content="Use Chrome for node debugging">
+<meta name="keywords" content="Node.js, Debugging, node-inspector">
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="VIPER Architecture in iOS">
-<meta name="twitter:description" content="The easiest way of consuming API using Swift">
+<meta name="twitter:title" content="Node.js debugging using node-inspector">
+<meta name="twitter:description" content="Use Chrome for node debugging">
 <meta name="twitter:site" content="@hhtopcu">
 <meta name="twitter:creator" content="@hhtopcu">
 
@@ -23,16 +23,16 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VIPER Architecture in iOS">
-<meta property="og:description" content="The easiest way of consuming API using Swift">
-<meta property="og:url" content="http://localhost:4000/articles/viper-arcitecture-swift/">
+<meta property="og:title" content="Node.js debugging using node-inspector">
+<meta property="og:description" content="Use Chrome for node debugging">
+<meta property="og:url" content="http://localhost:4000/articles/node-debugging/">
 <meta property="og:site_name" content="Simple ideas that matter">
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/articles/viper-arcitecture-swift/">
+<link rel="canonical" href="http://localhost:4000/articles/node-debugging/">
 <link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Simple ideas that matter Feed">
 
 <!-- https://t.co/dKP3o1e -->
@@ -133,10 +133,10 @@
     <div class="entry-wrapper">
       <header class="entry-header">
         <ul class="entry-tags">
-          <li><a href="http://localhost:4000/tags/#VIPER" title="Pages tagged VIPER">VIPER</a></li><li><a href="http://localhost:4000/tags/#iOS" title="Pages tagged iOS">iOS</a></li><li><a href="http://localhost:4000/tags/#MVC" title="Pages tagged MVC">MVC</a></li>
+          <li><a href="http://localhost:4000/tags/#Node.js" title="Pages tagged Node.js">Node.js</a></li><li><a href="http://localhost:4000/tags/#Debugging" title="Pages tagged Debugging">Debugging</a></li><li><a href="http://localhost:4000/tags/#node-inspector" title="Pages tagged node-inspector">node-inspector</a></li>
         </ul>
         
-          <h1 class="entry-title">VIPER Architecture in iOS</h1>
+          <h1 class="entry-title">Node.js debugging using node-inspector</h1>
         
       </header>
       <footer class="entry-meta">
@@ -146,61 +146,69 @@
           <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hasan Huseyin Topcu bio photo"></a>
         
         <span class="author vcard">By <span class="fn">Hasan Huseyin Topcu</span></span>
-        <span class="entry-date date published"><time datetime="2016-09-14T00:00:00-07:00"><i class="fa fa-calendar-o"></i> September 14, 2016</time></span>
-        <span class="entry-date date modified"><time datetime="2016-04-29"><i class="fa fa-pencil"></i> April 29, 2016</time></span>
+        <span class="entry-date date published"><time datetime="2016-10-04T00:00:00-07:00"><i class="fa fa-calendar-o"></i> October 04, 2016</time></span>
+        <span class="entry-date date modified"><time datetime="2016-10-04"><i class="fa fa-pencil"></i> October 04, 2016</time></span>
         <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
         <span class="social-share-twitter">
-  <a href="https://twitter.com/intent/tweet?hashtags=VIPER,iOS,MVC&amp;text=VIPER%20Architecture%20in%20iOS&amp;url=http://localhost:4000/articles/viper-arcitecture-swift/&amp;via=hhtopcu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+  <a href="https://twitter.com/intent/tweet?hashtags=Node.js,Debugging,node-inspector&amp;text=Node.js%20debugging%20using%20node-inspector&amp;url=http://localhost:4000/articles/node-debugging/&amp;via=hhtopcu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
 </span>
 <span class="social-share-facebook">
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/articles/viper-arcitecture-swift/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/articles/node-debugging/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
 </span>
 <span class="social-share-googleplus">
-  <a href="https://plus.google.com/share?url=http://localhost:4000/articles/viper-arcitecture-swift/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
+  <a href="https://plus.google.com/share?url=http://localhost:4000/articles/node-debugging/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
 </span>
 <!-- /.social-share -->
         
       </footer>
       <div class="entry-content">
-        <p>Software architecture is the process of defining a structured solution that meets all of the technical and operational requirements. In mobile literature, you heavily heard MVC from Apple’s and Google’s official documentations. If you are a beginner, the way how they structured an mobile software is good, however, if you are a part of big project (which can be discussed what is big?), MVC limits you and enables the violation of important principles like SRP which directly affects the testability of the software. So we really need better architectures.</p>
+        <p>This is a introductory and a quick node.js debugging tutorial. Node Inspector is a debugger interface for Node.js applications supported by <a href="https://strongloop.com/">StrongLoop</a>. Let’s start</p>
 
-<p>MVP, MVVM and VIPER are one of these better architectures for big projects. I will not go into detail what they are and when to use them, you can read the articles in the references. In this post, I will mention VIPER in a practical manner</p>
+<p>First, install node inspector globally</p>
 
-<p>I pushed a gem that you can easily generate a VIPER architecture for your module with vipergen-xctestable</p>
+<p><code>
+$ sudo npm install -g node-inspector
+</code></p>
 
-<blockquote>
-  <p>sudo gem install vipergen-xctestable</p>
-</blockquote>
+<p>Open the node-inspector first. It will run on background</p>
 
-<p>and next</p>
+<p><code>
+$ node-inspector
+</code></p>
 
-<blockquote>
-  <p>vipergen generate Auth –path=. –language=swift –author=’hhtopcu’ –template=xctestable –swift-module MyViper</p>
-</blockquote>
+<p>Open another terminal and write</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">// Some code</span></code></pre></div>
+<p><code>
+$ node --debug your-app.js
+</code></p>
+
+<p>Open chrome and browse
+&gt;	http://127.0.0.1:8080/?ws=127.0.0.1:8080&amp;port=5858</p>
+
+<p><img src="http://localhost:4000/images/article/node-debugging/node-inspector-chrome.png" alt="Node-Inspector-Chrome" /></p>
+
+<p>Step over, step into, watch variables and many debugging options exist. Let’s fist put a breakpoint to debug the incoming request</p>
+
+<p><img src="http://localhost:4000/images/article/node-debugging/breakpoint.png" alt="Breakpoint" /></p>
+
+<p>Now, send a GET request to our express powered API using curl to the /config endpoint</p>
+
+<p><code>
+$ curl http://localhost:8080/config
+</code></p>
+
+<p>Gotcha, the request hits the breakpoint.</p>
+
+<p><img src="http://localhost:4000/images/article/node-debugging/breakpoint-catched.png" alt="Breakpoint-Catched" /></p>
+
+<p>We can watch variables, observe call stack, and many options</p>
+
+<p><img src="http://localhost:4000/images/article/node-debugging/debugging-options.png" alt="Debugging-Options" /></p>
 
 <h2 id="references">References</h2>
 
 <ul>
-  <li>
-    <p><a href="http://mutualmobile.github.io/blog/2013/12/04/viper-introduction/">Introduction to VIPER</a></p>
-  </li>
-  <li>
-    <p><a href="https://medium.com/brigade-engineering/brigades-experience-using-an-mvc-alternative-36ef1601a41f#.z3qdnldih">Brigade’s Experience Using an MVC Alternative</a></p>
-  </li>
-  <li>
-    <p><a href="https://swifting.io/blog/2016/03/07/8-viper-to-be-or-not-to-be/">#8 VIPER to be or not to be?</a></p>
-  </li>
-  <li>
-    <p><a href="http://iosunittesting.com/tdd-with-viper/?utm_source=swifting.io&amp;utm_medium=web&amp;utm_campaign=blog%20post">First Observations on TDD with VIPER</a></p>
-  </li>
-  <li>
-    <p><a href="https://www.objc.io/issues/13-architecture/viper/">Architecting iOS Apps with VIPER</a></p>
-  </li>
-  <li>
-    <p><a href="http://www.mttnow.com/blog/architecting-mobile-apps-with-bviper-modules">ARCHITECTING MOBILE APPS WITH (B)VIPER MODULES</a></p>
-  </li>
+  <li><a href="https://github.com/node-inspector/node-inspector">Node Inspector</a></li>
 </ul>
 
         
@@ -233,10 +241,8 @@
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="http://localhost:4000/articles/consume-restful-api-using-alamofire/" class="btn" title="Consume RESTful APIs using Alamofire with Swift 3">Previous</a>
+        <a href="http://localhost:4000/articles/viper-arcitecture-swift/" class="btn" title="VIPER Architecture in iOS">Previous</a>
       
-      
-        <a href="http://localhost:4000/articles/node-debugging/" class="btn" title="Node.js debugging using node-inspector">Next</a>
       
     </nav><!-- /.pagination -->
   </article>
