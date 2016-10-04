@@ -2,13 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">Simple ideas that matter</title>
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
-<link rel="alternate" type="text/html" href="http://localhost:4000" />
-<updated>2016-10-04T16:04:46-07:00</updated>
-<id>http://localhost:4000/</id>
+<link rel="self" type="application/atom+xml" href="https://hhtopcu.github.io/feed.xml" />
+<link rel="alternate" type="text/html" href="https://hhtopcu.github.io" />
+<updated>2016-10-04T16:09:59-07:00</updated>
+<id>https://hhtopcu.github.io/</id>
 <author>
   <name>Hasan Huseyin Topcu</name>
-  <uri>http://localhost:4000/</uri>
+  <uri>https://hhtopcu.github.io/</uri>
   <email>hhtopcu@gmail.com</email>
 </author>
 
@@ -17,14 +17,14 @@
 
 <entry>
   <title type="html"><![CDATA[Node.js debugging using node-inspector]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/node-debugging/" />
-  <id>http://localhost:4000/articles/node-debugging</id>
+  <link rel="alternate" type="text/html" href="https://hhtopcu.github.io/articles/node-debugging/" />
+  <id>https://hhtopcu.github.io/articles/node-debugging</id>
   <updated>2016-10-04T00:00:00-00:00</updated>
   <published>2016-10-04T00:00:00-07:00</published>
   
   <author>
     <name>Hasan Huseyin Topcu</name>
-    <uri>http://localhost:4000</uri>
+    <uri>https://hhtopcu.github.io</uri>
     <email>hhtopcu@gmail.com</email>
   </author>
   <content type="html">
@@ -51,11 +51,11 @@ $ node --debug your-app.js
 &lt;p&gt;Open chrome and browse
 &amp;gt;	http://127.0.0.1:8080/?ws=127.0.0.1:8080&amp;amp;port=5858&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/article/node-debugging/node-inspector-chrome.png&quot; alt=&quot;Node-Inspector-Chrome&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hhtopcu.github.io/images/article/node-debugging/node-inspector-chrome.png&quot; alt=&quot;Node-Inspector-Chrome&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Step over, step into, watch variables and many debugging options exist. Let’s fist put a breakpoint to debug the incoming request&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/article/node-debugging/breakpoint.png&quot; alt=&quot;Breakpoint&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hhtopcu.github.io/images/article/node-debugging/breakpoint.png&quot; alt=&quot;Breakpoint&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Now, send a GET request to our express powered API using curl to the /config endpoint&lt;/p&gt;
 
@@ -65,11 +65,11 @@ $ curl http://localhost:8080/config
 
 &lt;p&gt;Gotcha, the request hits the breakpoint.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/article/node-debugging/breakpoint-catched.png&quot; alt=&quot;Breakpoint-Catched&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hhtopcu.github.io/images/article/node-debugging/breakpoint-catched.png&quot; alt=&quot;Breakpoint-Catched&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We can watch variables, observe call stack, and many options&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/article/node-debugging/debugging-options.png&quot; alt=&quot;Debugging-Options&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hhtopcu.github.io/images/article/node-debugging/debugging-options.png&quot; alt=&quot;Debugging-Options&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 
@@ -77,7 +77,7 @@ $ curl http://localhost:8080/config
   &lt;li&gt;&lt;a href=&quot;https://github.com/node-inspector/node-inspector&quot;&gt;Node Inspector&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/node-debugging/&quot;&gt;Node.js debugging using node-inspector&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Simple ideas that matter&lt;/a&gt; on October 04, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://hhtopcu.github.io/articles/node-debugging/&quot;&gt;Node.js debugging using node-inspector&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;https://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on October 04, 2016.&lt;/p&gt;
   </content>
 </entry>
 
@@ -86,14 +86,14 @@ $ curl http://localhost:8080/config
 
 <entry>
   <title type="html"><![CDATA[VIPER Architecture in iOS]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/viper-arcitecture-swift/" />
-  <id>http://localhost:4000/articles/viper-arcitecture-swift</id>
+  <link rel="alternate" type="text/html" href="https://hhtopcu.github.io/articles/viper-arcitecture-swift/" />
+  <id>https://hhtopcu.github.io/articles/viper-arcitecture-swift</id>
   <updated>2016-04-29T00:00:00-00:00</updated>
   <published>2016-09-14T00:00:00-07:00</published>
   
   <author>
     <name>Hasan Huseyin Topcu</name>
-    <uri>http://localhost:4000</uri>
+    <uri>https://hhtopcu.github.io</uri>
     <email>hhtopcu@gmail.com</email>
   </author>
   <content type="html">
@@ -138,7 +138,7 @@ $ curl http://localhost:8080/config
   &lt;/li&gt;
 &lt;/ul&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/viper-arcitecture-swift/&quot;&gt;VIPER Architecture in iOS&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Simple ideas that matter&lt;/a&gt; on September 14, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://hhtopcu.github.io/articles/viper-arcitecture-swift/&quot;&gt;VIPER Architecture in iOS&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;https://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on September 14, 2016.&lt;/p&gt;
   </content>
 </entry>
 
@@ -147,14 +147,14 @@ $ curl http://localhost:8080/config
 
 <entry>
   <title type="html"><![CDATA[Consume RESTful APIs using Alamofire with Swift 3]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/consume-restful-api-using-alamofire/" />
-  <id>http://localhost:4000/articles/consume-restful-api-using-alamofire</id>
+  <link rel="alternate" type="text/html" href="https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/" />
+  <id>https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire</id>
   <updated>2016-04-29T00:00:00-00:00</updated>
   <published>2016-04-29T00:00:00-07:00</published>
   
   <author>
     <name>Hasan Huseyin Topcu</name>
-    <uri>http://localhost:4000</uri>
+    <uri>https://hhtopcu.github.io</uri>
     <email>hhtopcu@gmail.com</email>
   </author>
   <content type="html">
@@ -331,7 +331,7 @@ $ curl http://localhost:8080/config
 &lt;/ul&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/consume-restful-api-using-alamofire/&quot;&gt;Consume RESTful APIs using Alamofire with Swift 3&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Simple ideas that matter&lt;/a&gt; on April 29, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/&quot;&gt;Consume RESTful APIs using Alamofire with Swift 3&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;https://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on April 29, 2016.&lt;/p&gt;
   </content>
 </entry>
 
@@ -340,14 +340,14 @@ $ curl http://localhost:8080/config
 
 <entry>
   <title type="html"><![CDATA[How to design RESTful APIs]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/how-to-design-restful-api/" />
-  <id>http://localhost:4000/articles/how-to-design-restful-api</id>
+  <link rel="alternate" type="text/html" href="https://hhtopcu.github.io/articles/how-to-design-restful-api/" />
+  <id>https://hhtopcu.github.io/articles/how-to-design-restful-api</id>
   <updated>2016-01-15T00:00:00-00:00</updated>
   <published>2016-01-05T00:00:00-08:00</published>
   
   <author>
     <name>Hasan Huseyin Topcu</name>
-    <uri>http://localhost:4000</uri>
+    <uri>https://hhtopcu.github.io</uri>
     <email>hhtopcu@gmail.com</email>
   </author>
   <content type="html">
@@ -443,7 +443,7 @@ $ curl http://localhost:8080/config
 &lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/hdSrT4yjS1g&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/how-to-design-restful-api/&quot;&gt;How to design RESTful APIs&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Simple ideas that matter&lt;/a&gt; on January 05, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://hhtopcu.github.io/articles/how-to-design-restful-api/&quot;&gt;How to design RESTful APIs&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;https://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on January 05, 2016.&lt;/p&gt;
   </content>
 </entry>
 
@@ -452,14 +452,14 @@ $ curl http://localhost:8080/config
 
 <entry>
   <title type="html"><![CDATA[Multiple Storyboards]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/multiple-storyboards/" />
-  <id>http://localhost:4000/articles/multiple-storyboards</id>
+  <link rel="alternate" type="text/html" href="https://hhtopcu.github.io/articles/multiple-storyboards/" />
+  <id>https://hhtopcu.github.io/articles/multiple-storyboards</id>
   <updated>2015-11-28T00:00:00-00:00</updated>
   <published>2015-11-28T00:00:00-08:00</published>
   
   <author>
     <name>Hasan Huseyin Topcu</name>
-    <uri>http://localhost:4000</uri>
+    <uri>https://hhtopcu.github.io</uri>
     <email>hhtopcu@gmail.com</email>
   </author>
   <content type="html">
@@ -469,7 +469,7 @@ $ curl http://localhost:8080/config
 
 &lt;p&gt;Assume our app may have features such as &lt;strong&gt;Business Info&lt;/strong&gt;, &lt;strong&gt;Request Driver&lt;/strong&gt;, &lt;strong&gt;Bookings&lt;/strong&gt;, &lt;strong&gt;History&lt;/strong&gt; and etc. Each feature(or module) has its own dedicated set of screens. Using multiple storyboard approach, we will simply accumulate all screens, dedicated to a single feature, to a single storyboard.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/article/multiple-storyboards/multi_storyboards.png&quot; alt=&quot;Multiple Storyboards&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hhtopcu.github.io/images/article/multiple-storyboards/multi_storyboards.png&quot; alt=&quot;Multiple Storyboards&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;When you create an Xcode project, you come up with a single storyboard named &lt;em&gt;Main.storyboard&lt;/em&gt;. You can add a storyboard design from&lt;/p&gt;
 
@@ -494,7 +494,7 @@ $ curl http://localhost:8080/config
 
 &lt;p&gt;However, beginning with the iOS-9, &lt;strong&gt;Storyboard Reference&lt;/strong&gt; is introduced which provides linking mechanism at the design stage. This new feature converts your single, fat and complex storyboard into modular and high-level storyboard easing your management.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/article/multiple-storyboards/storyboard_reference.png&quot; alt=&quot;Multiple Storyboards&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hhtopcu.github.io/images/article/multiple-storyboards/storyboard_reference.png&quot; alt=&quot;Multiple Storyboards&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;To sum up, I strongly recommend you to organize your projects &lt;strong&gt;one storyboard for one feature approach&lt;/strong&gt; because of the following reasons: easy management of feature designs and increase your team productivity by reducing conflicts&lt;/p&gt;
 
@@ -509,7 +509,7 @@ $ curl http://localhost:8080/config
   &lt;/li&gt;
 &lt;/ul&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/multiple-storyboards/&quot;&gt;Multiple Storyboards&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Simple ideas that matter&lt;/a&gt; on November 28, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://hhtopcu.github.io/articles/multiple-storyboards/&quot;&gt;Multiple Storyboards&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;https://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on November 28, 2015.&lt;/p&gt;
   </content>
 </entry>
 
