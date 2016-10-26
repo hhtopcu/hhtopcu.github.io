@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="https://hhtopcu.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="https://hhtopcu.github.io" />
-<updated>2016-10-26T16:37:42-07:00</updated>
+<updated>2016-10-26T16:42:51-07:00</updated>
 <id>https://hhtopcu.github.io/</id>
 <author>
   <name>Hasan Huseyin Topcu</name>
@@ -152,72 +152,11 @@ $ curl http://localhost:8080/config
   
 
 <entry>
-  <title type="html"><![CDATA[VIPER Architecture in iOS]]></title>
-  <link rel="alternate" type="text/html" href="https://hhtopcu.github.io/articles/viper-arcitecture-swift/" />
-  <id>https://hhtopcu.github.io/articles/viper-arcitecture-swift</id>
-  <updated>2016-09-14T00:00:00-00:00</updated>
-  <published>2016-09-14T00:00:00-07:00</published>
-  
-  <author>
-    <name>Hasan Huseyin Topcu</name>
-    <uri>https://hhtopcu.github.io</uri>
-    <email>hhtopcu@gmail.com</email>
-  </author>
-  <content type="html">
-    &lt;p&gt;Software architecture is the process of defining a structured solution that meets all of the technical and operational requirements. In mobile literature, you heavily heard MVC from Apple’s and Google’s official documentations. If you are a beginner, the way how they structured an mobile software is good, however, if you are a part of big project (which can be discussed what is big?), MVC limits you and enables the violation of important principles like SRP which directly affects the testability of the software. So we really need better architectures.&lt;/p&gt;
-
-&lt;p&gt;MVP, MVVM and VIPER are one of these better architectures for big projects. I will not go into detail what they are and when to use them, you can read the articles in the references. In this post, I will mention VIPER in a practical manner&lt;/p&gt;
-
-&lt;p&gt;I pushed a gem that you can easily generate a VIPER architecture for your module with vipergen-xctestable&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;sudo gem install vipergen-xctestable&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;and next&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;vipergen generate Auth –path=. –language=swift –author=’hhtopcu’ –template=xctestable –swift-module MyViper&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Some code&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://mutualmobile.github.io/blog/2013/12/04/viper-introduction/&quot;&gt;Introduction to VIPER&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://medium.com/brigade-engineering/brigades-experience-using-an-mvc-alternative-36ef1601a41f#.z3qdnldih&quot;&gt;Brigade’s Experience Using an MVC Alternative&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://swifting.io/blog/2016/03/07/8-viper-to-be-or-not-to-be/&quot;&gt;#8 VIPER to be or not to be?&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://iosunittesting.com/tdd-with-viper/?utm_source=swifting.io&amp;amp;utm_medium=web&amp;amp;utm_campaign=blog%20post&quot;&gt;First Observations on TDD with VIPER&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://www.objc.io/issues/13-architecture/viper/&quot;&gt;Architecting iOS Apps with VIPER&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.mttnow.com/blog/architecting-mobile-apps-with-bviper-modules&quot;&gt;ARCHITECTING MOBILE APPS WITH (B)VIPER MODULES&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-    &lt;p&gt;&lt;a href=&quot;https://hhtopcu.github.io/articles/viper-arcitecture-swift/&quot;&gt;VIPER Architecture in iOS&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;https://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on September 14, 2016.&lt;/p&gt;
-  </content>
-</entry>
-
-
-  
-
-<entry>
   <title type="html"><![CDATA[Consume RESTful APIs using Alamofire with Swift 3]]></title>
   <link rel="alternate" type="text/html" href="https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/" />
   <id>https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire</id>
-  <updated>2016-04-29T00:00:00-00:00</updated>
-  <published>2016-04-29T00:00:00-07:00</published>
+  <updated>2016-09-25T00:00:00-00:00</updated>
+  <published>2016-09-25T00:00:00-07:00</published>
   
   <author>
     <name>Hasan Huseyin Topcu</name>
@@ -398,7 +337,68 @@ $ curl http://localhost:8080/config
 &lt;/ul&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/&quot;&gt;Consume RESTful APIs using Alamofire with Swift 3&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;https://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on April 29, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/&quot;&gt;Consume RESTful APIs using Alamofire with Swift 3&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;https://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on September 25, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[VIPER Architecture in iOS]]></title>
+  <link rel="alternate" type="text/html" href="https://hhtopcu.github.io/articles/viper-arcitecture-swift/" />
+  <id>https://hhtopcu.github.io/articles/viper-arcitecture-swift</id>
+  <updated>2016-09-14T00:00:00-00:00</updated>
+  <published>2016-09-14T00:00:00-07:00</published>
+  
+  <author>
+    <name>Hasan Huseyin Topcu</name>
+    <uri>https://hhtopcu.github.io</uri>
+    <email>hhtopcu@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;Software architecture is the process of defining a structured solution that meets all of the technical and operational requirements. In mobile literature, you heavily heard MVC from Apple’s and Google’s official documentations. If you are a beginner, the way how they structured an mobile software is good, however, if you are a part of big project (which can be discussed what is big?), MVC limits you and enables the violation of important principles like SRP which directly affects the testability of the software. So we really need better architectures.&lt;/p&gt;
+
+&lt;p&gt;MVP, MVVM and VIPER are one of these better architectures for big projects. I will not go into detail what they are and when to use them, you can read the articles in the references. In this post, I will mention VIPER in a practical manner&lt;/p&gt;
+
+&lt;p&gt;I pushed a gem that you can easily generate a VIPER architecture for your module with vipergen-xctestable&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;sudo gem install vipergen-xctestable&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;and next&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;vipergen generate Auth –path=. –language=swift –author=’hhtopcu’ –template=xctestable –swift-module MyViper&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Some code&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://mutualmobile.github.io/blog/2013/12/04/viper-introduction/&quot;&gt;Introduction to VIPER&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://medium.com/brigade-engineering/brigades-experience-using-an-mvc-alternative-36ef1601a41f#.z3qdnldih&quot;&gt;Brigade’s Experience Using an MVC Alternative&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://swifting.io/blog/2016/03/07/8-viper-to-be-or-not-to-be/&quot;&gt;#8 VIPER to be or not to be?&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://iosunittesting.com/tdd-with-viper/?utm_source=swifting.io&amp;amp;utm_medium=web&amp;amp;utm_campaign=blog%20post&quot;&gt;First Observations on TDD with VIPER&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.objc.io/issues/13-architecture/viper/&quot;&gt;Architecting iOS Apps with VIPER&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.mttnow.com/blog/architecting-mobile-apps-with-bviper-modules&quot;&gt;ARCHITECTING MOBILE APPS WITH (B)VIPER MODULES&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://hhtopcu.github.io/articles/viper-arcitecture-swift/&quot;&gt;VIPER Architecture in iOS&lt;/a&gt; was originally published by Hasan Huseyin Topcu at &lt;a href=&quot;https://hhtopcu.github.io&quot;&gt;Simple ideas that matter&lt;/a&gt; on September 14, 2016.&lt;/p&gt;
   </content>
 </entry>
 

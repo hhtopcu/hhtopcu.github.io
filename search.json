@@ -18,17 +18,17 @@
 
   
     ,{
-      "title"			: "VIPER Architecture in iOS",
-      "link"			: "https://hhtopcu.github.io/articles/viper-arcitecture-swift/",
-      "excerpt"		: "The easiest way of consuming API using Swift"
+      "title"			: "Consume RESTful APIs using Alamofire with Swift 3",
+      "link"			: "https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/",
+      "excerpt"		: "The easiest way of consuming API using Swift 3"
     }
   
 
   
     ,{
-      "title"			: "Consume RESTful APIs using Alamofire with Swift 3",
-      "link"			: "https://hhtopcu.github.io/articles/consume-restful-api-using-alamofire/",
-      "excerpt"		: "The easiest way of consuming API using Swift 3"
+      "title"			: "VIPER Architecture in iOS",
+      "link"			: "https://hhtopcu.github.io/articles/viper-arcitecture-swift/",
+      "excerpt"		: "The easiest way of consuming API using Swift"
     }
   
 
