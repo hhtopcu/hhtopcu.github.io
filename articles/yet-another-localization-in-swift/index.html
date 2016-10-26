@@ -1,0 +1,284 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Yet another localization in Swift &#8211; Simple ideas that matter</title>
+<meta name="description" content="Leverage power of extensions">
+<meta name="keywords" content="Swift, Localization">
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Yet another localization in Swift">
+<meta name="twitter:description" content="Leverage power of extensions">
+<meta name="twitter:site" content="@hhtopcu">
+<meta name="twitter:creator" content="@hhtopcu">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hhtopcu.github.io/images/site-logo.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Yet another localization in Swift">
+<meta property="og:description" content="Leverage power of extensions">
+<meta property="og:url" content="https://hhtopcu.github.io/articles/yet-another-localization-in-swift/">
+<meta property="og:site_name" content="Simple ideas that matter">
+
+
+
+
+
+<link rel="canonical" href="https://hhtopcu.github.io/articles/yet-another-localization-in-swift/">
+<link href="https://hhtopcu.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Simple ideas that matter Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://hhtopcu.github.io/assets/css/main.css">
+<!-- Webfonts -->
+<script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="https://hhtopcu.github.io/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="https://hhtopcu.github.io/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://hhtopcu.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+<!-- MathJax -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://hhtopcu.github.io/favicon.png">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://hhtopcu.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://hhtopcu.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://hhtopcu.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://hhtopcu.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://hhtopcu.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      
+		    
+		        
+		    
+		    <li><a href="https://hhtopcu.github.io/" >Home</a></li>
+		  
+		    
+		        
+		    
+		    <li><a href="https://hhtopcu.github.io/articles/" >Articles</a></li>
+		  
+		    
+		        
+		    
+		    <li><a href="https://hhtopcu.github.io/about/" >About me</a></li>
+		  
+		    
+		        
+		    
+		    <li><a href="https://hhtopcu.github.io/tags/" >Tags</a></li>
+		  
+		    
+		        
+		    
+		    <li><a href="https://hhtopcu.github.io/search/" >Search</a></li>
+		  
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<header class="masthead">
+	<div class="wrap">
+      
+  		<a href="https://hhtopcu.github.io/" class="site-logo" rel="home" title="Simple ideas that matter"><img src="https://hhtopcu.github.io/images/site-logo.png" width="200" height="200" alt="Simple ideas that matter logo" class="animated fadeInDown"></a>
+      
+      <h1 class="site-title animated fadeIn"><a href="https://hhtopcu.github.io/">Simple ideas that matter</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">Random stuffs for developers</h2>
+	</div>
+</header><!-- /.masthead -->
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <ul class="entry-tags">
+          <li><a href="https://hhtopcu.github.io/tags/#Swift" title="Pages tagged Swift">Swift</a></li><li><a href="https://hhtopcu.github.io/tags/#Localization" title="Pages tagged Localization">Localization</a></li>
+        </ul>
+        
+          <h1 class="entry-title">Yet another localization in Swift</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        
+        
+        
+          <img src="https://hhtopcu.github.io/images/bio-photo.jpg" class="bio-photo" alt="Hasan Huseyin Topcu bio photo"></a>
+        
+        <span class="author vcard">By <span class="fn">Hasan Huseyin Topcu</span></span>
+        <span class="entry-date date published"><time datetime="2016-10-25T00:00:00-07:00"><i class="fa fa-calendar-o"></i> October 25, 2016</time></span>
+        <span class="entry-date date modified"><time datetime="2016-10-25"><i class="fa fa-pencil"></i> October 25, 2016</time></span>
+        <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
+        <span class="social-share-twitter">
+  <a href="https://twitter.com/intent/tweet?hashtags=Swift,Localization&amp;text=Yet%20another%20localization%20in%20Swift&amp;url=https://hhtopcu.github.io/articles/yet-another-localization-in-swift/&amp;via=hhtopcu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+</span>
+<span class="social-share-facebook">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://hhtopcu.github.io/articles/yet-another-localization-in-swift/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
+</span>
+<span class="social-share-googleplus">
+  <a href="https://plus.google.com/share?url=https://hhtopcu.github.io/articles/yet-another-localization-in-swift/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
+</span>
+<!-- /.social-share -->
+        
+      </footer>
+      <div class="entry-content">
+        <p>Internationalisation and Localization of apps is essential when you want the apps to seamlessly support different languages and region. Internationalization refers to process of providing a framework to the app for supporting multiple languages. And Localization refers to the process of making your app to support a particular locale such as Turkish.</p>
+
+<p>What I want in this tutorial is to simplify and make more readable the below statement using extensions regarding the <a href="https://hhtopcu.github.io/articles/viper-arcitecture-swift/">VIPER</a> architecture</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">func</span> <span class="nf">notifyLoginButtonTapped</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">viewModel</span> <span class="o">=</span> <span class="n">view</span><span class="o">?</span><span class="p">.</span><span class="n">getLoginViewModel</span><span class="p">()</span>
+    
+    <span class="k">if</span><span class="p">(</span><span class="n">viewModel</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+    	<span class="p">...</span>
+        <span class="k">let</span> <span class="n">message</span> <span class="o">=</span> <span class="n">NSLocalized</span><span class="err">​</span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Processing...&quot;</span><span class="p">,</span> <span class="s">&quot;Processing...&quot;</span><span class="p">)</span>
+        <span class="n">view</span><span class="o">?</span><span class="p">.</span><span class="n">displayProgress</span><span class="p">(</span><span class="nl">message</span><span class="p">:</span> <span class="n">message</span><span class="p">)</span>
+        <span class="n">interactor</span><span class="o">?</span><span class="p">.</span><span class="n">authenticateUser</span><span class="p">(</span><span class="nl">model</span><span class="p">:</span> <span class="n">model</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>As you remember from my previous posts, <a href="https://hhtopcu.github.io/articles/viper-arcitecture-swift/">VIPER</a> architecture is based on modules targetting reusability. Let’s assume each module has its own .strings file. For instance Login module has a file named <strong>Login.strings</strong> including all the strings that should be localized, and Address module has <strong>Address.strings</strong>, so on and so forth.</p>
+
+<p>In short, what I want to do is writing more readable localization statement and obtaining more specialized to viper module. What I want to do is what I did below :)</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">func</span> <span class="nf">notifyLoginButtonTapped</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">viewModel</span> <span class="o">=</span> <span class="n">view</span><span class="o">?</span><span class="p">.</span><span class="n">getLoginViewModel</span><span class="p">()</span>
+    
+    <span class="k">if</span><span class="p">(</span><span class="n">viewModel</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+    	<span class="p">...</span>
+        <span class="k">let</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Processing&quot;</span><span class="p">.</span><span class="n">localized</span><span class="p">(</span><span class="k">in</span><span class="o">:</span> <span class="s">&quot;Login&quot;</span><span class="p">)</span>
+        <span class="n">view</span><span class="o">?</span><span class="p">.</span><span class="n">displayProgress</span><span class="p">(</span><span class="nl">message</span><span class="p">:</span> <span class="n">message</span><span class="p">)</span>
+        <span class="n">interactor</span><span class="o">?</span><span class="p">.</span><span class="n">authenticateUser</span><span class="p">(</span><span class="nl">model</span><span class="p">:</span> <span class="n">model</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Here “Processing” string is localized in according to “Login” module.</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Processing&quot;</span><span class="p">.</span><span class="n">localized</span><span class="p">(</span><span class="k">in</span><span class="o">:</span> <span class="s">&quot;Login&quot;</span><span class="p">)</span></code></pre></div>
+
+<p>How can we achieve this? Write an <strong>Extension</strong> method for String class as indicated below</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">extension</span> <span class="n">String</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">localized</span><span class="p">(</span><span class="k">in</span> <span class="nl">table</span><span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">NSLocalizedString</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="nl">tableName</span><span class="p">:</span> <span class="n">table</span><span class="p">,</span> <span class="nl">bundle</span><span class="p">:</span> <span class="n">Bundle</span><span class="p">.</span><span class="n">main</span><span class="p">,</span> <span class="nl">value</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="nl">comment</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>To summarize, I give a more readable localization example and it can be used with a viper module comfortably of course you may not need to use it in a viper module. If you have just one file named <strong>Localizable.strings</strong>, you may use without specifying the localization file with a litte bit change in tableName in extension.</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Processing&quot;</span><span class="p">.</span><span class="n">localized</span><span class="p">()</span></code></pre></div>
+
+
+        
+          <div id="disqus_thread"></div><!-- /#disqus_thread -->
+          
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hhtopcu'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="https://hhtopcu.github.io/articles/node-debugging/" class="btn" title="Node.js debugging using node-inspector">Previous</a>
+      
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    
+
+<span>&copy; 2016 Hasan Huseyin Topcu</span>
+<div class="social-icons">
+	<a href="https://twitter.com/hhtopcu" title="Hasan Huseyin Topcu on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+	
+	
+	<a href="https://linkedin.com/in/hhtopcu" title="Hasan Huseyin Topcu on LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+	
+	
+	
+	<a href="https://github.com/hhtopcu" title="Hasan Huseyin Topcu on Github" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+	
+  
+	
+  <a href="https://hhtopcu.github.io/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'https://hhtopcu.github.io';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://hhtopcu.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://hhtopcu.github.io/assets/js/scripts.min.js"></script>
+
+
+
+
+</body>
+</html>
